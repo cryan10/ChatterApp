@@ -1,0 +1,54 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+h3,
+h4,
+h5,
+h6,
+.form-group{
+    color:white;
+    font-family: 'News Cycle', sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px #111111;
+}
+
+h1,
+h2{
+    color:white;
+   font-size: 70px;
+    font-family: 'Passion One', cursive;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px #111111;
+}
+
+.navbar,
+footer,
+p{
+     color:white;
+     font-family: 'News Cycle', sans-serif;
+     letter-spacing: 1px;
+}

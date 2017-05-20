@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Chatter.Models.ChatterUserInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="response"></div>
+<button id="getChats" class="btn btn-primary">Get Chats</button>
+
+
+@section Scripts{
+ <script>
+    $.get("@Url.Action("TestJson","ChatterUserInfo")", function (serverResponse) {
+    var jsonTest = JSON.parse(serverResponse);
+    console.log(jsonTest);
+    console.log(serverResponse);
+    $("#response").text(jsonTest.firstName);
+});
+ </script>
+}
