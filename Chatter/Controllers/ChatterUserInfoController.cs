@@ -23,9 +23,24 @@ namespace Chatter.Controllers
         }
         public JsonResult TestJson()
         {
-            string jsonTest = "{ \"firstName\": \"Melanie\",\"lastName\": \"McGee\", \"children\": [{\"firstName\": \"Mira\", \"age\": 13 },{\"firstName\": \"Ethan\", \"age\": null }] }";
+            //string jsonTest = "{ \"firstName\": \"Melanie\",\"lastName\": \"McGee\", \"children\": [{\"firstName\": \"Mira\", \"age\": 13 },{\"firstName\": \"Ethan\", \"age\": null }] }";
 
-            return Json(jsonTest, JsonRequestBehavior.AllowGet);
+            //SELECT AspNetUsers.UserName, ChatterUserInfo.Message, ChatterUserInfo.Timestamp
+            //FROM ChatterUserInfo
+            //INNER JOIN AspNetUsers on ChatterUserInfo.UserID = AspNetUsers.Id
+
+
+            var chats = from ChatterUserInfoes in db.ChatterUserInfoes
+                        select new
+                        {
+                            ChatterUserInfoes.AspNetUser.UserName,
+                            ChatterUserInfoes.Message,
+                            ChatterUserInfoes.Timestamp
+                        };
+
+            var output = JsonConvert.SerializeObject(chats.ToList());
+
+            return Json(output, JsonRequestBehavior.AllowGet);
         }
 
 
