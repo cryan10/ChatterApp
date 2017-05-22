@@ -1,0 +1,36 @@
+﻿body {
+}
+body {
+    background-color:white;
+}
+
+
+h2{
+    font-size:75px;
+    color:#337AB7;
+    letter-spacing: 2px;
+    font-family: 'Passion One', cursive;
+    text-shadow: 1px 1px 1px #111111;
+}
+
+.addChat{
+    font-size:24px;
+    letter-spacing: 2px;
+    font-family: 'News Cycle', sans-serif;
+}
+
+
+#getChats {
+    background-color: #337AB7;
+    border-color: #337AB7;
+    font-family: 'News Cycle', sans-serif;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    text-align:center;
+    }
+#getChats:hover{
+    background-color: #49abff;
+    border-color: #49abff;
+}

@@ -1,23 +1,30 @@
 ﻿@model IEnumerable<Chatter.Models.ChatterUserInfo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Chats";
 }
 
-<h2>Index</h2>
+<head>
+    <link href="~/Content/ChatterStyleSheet.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+</head>
+
+<h2>My Chats</h2>
+
+<div class="addChat">
+    @Html.ActionLink("Post a New Chat", "Create")
+</div>
 <div id="response"></div>
-<button id="getChats" class="btn btn-primary">Get Chats</button>
+<button id="getChats" class="btn btn-primary">Update Chats</button>
 
 
 @section Scripts{
  <script>
      $(document).ready(function () {
 
-                $("#getChats").click(myFunction);
+         $("#getChats").click(myFunction);
 
                 function myFunction(){
                     $.get("@Url.Action("TestJson","ChatterUserInfo")", function (serverResponse) {
@@ -37,6 +44,7 @@
                         });
                     })
                 }
+         //setInterval(myFunction, 60000);
 
 
          $("PostChats").click();
