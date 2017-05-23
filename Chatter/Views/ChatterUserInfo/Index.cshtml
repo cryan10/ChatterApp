@@ -63,15 +63,21 @@ Post your chat here...
          //$("postChatsButton").click(function (postChatsNow) {
          //});
 
-         //var message;
-         //var textbox = document.getElementById('textbox');
-         //textbox.value = chat;
+         //assign message in textbox to variable
+         //take a look at jQuery and look at the 
+         //$.get("ATUrl.Action("METHOD NAME","ChatterUserInfo  CONTROLLER")",
 
-         //$("postChatsButton").click(function (message) {
-         //    message.post("ChatterUserInfoController.cs");
-         //});
 
-         $("PostChats").click();
+
+         $("#postChats").click(function () {
+             var message = $('#textbox').val();
+             $.post("@Url.Action("postChats", "ChatterUserInfo")", { "Message": message });
+             myFunction;
+         });
+
+
+
+         //$("PostChats").click();
 
      });
 </script>
