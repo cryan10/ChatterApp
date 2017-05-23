@@ -12,6 +12,8 @@ using Microsoft.AspNet.Identity;
 
 namespace Chatter.Controllers
 {
+    [Authorize]
+    [RequireHttps]
     public class ChatterUserInfoController : Controller
     {
         private ChatterEntities3 db = new ChatterEntities3();
