@@ -13,9 +13,20 @@
 
 <h2>My Chats</h2>
 
-<div class="addChat">
+@*<div class="addChat">
     @Html.ActionLink("Post a New Chat", "Create")
-</div>
+</div>*@
+
+<textarea id="textbox" rows="4" cols="50">
+Post your chat here...
+</textarea>
+<br/>
+@* USE JQUERY .POST ON BUTTON TO CONNECT MESSAGE TO CONTROLLER. W3 schools has the best method. See Slack message from Russ *@
+
+<button id="postChats" class="btn btn-primary">Post</button>
+
+
+
 <div id="response"></div>
 <button id="getChats" class="btn btn-primary">Update Chats</button>
 
@@ -44,8 +55,21 @@
                         });
                     })
                 }
+
+         //These don't work how they are supposed to, but they are my best guesses.
+
          //setInterval(myFunction, 60000);
 
+         //$("postChatsButton").click(function (postChatsNow) {
+         //});
+
+         //var message;
+         //var textbox = document.getElementById('textbox');
+         //textbox.value = chat;
+
+         //$("postChatsButton").click(function (message) {
+         //    message.post("ChatterUserInfoController.cs");
+         //});
 
          $("PostChats").click();
 
