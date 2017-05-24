@@ -1,0 +1,41 @@
+﻿body {
+    background-image: url(Images/bg.jpg);
+}
+
+
+.jumbotron{
+    color: #ffffff;
+    background-color:transparent;
+    text-align: left;
+    text-shadow: 1px 1px 6px #111111;
+    padding-bottom: 100px;
+}
+
+
+.jumbotron h1{
+    font-size:135px;
+    letter-spacing: 2px;
+    font-family: 'Passion One', cursive;
+}
+
+.jumbotron h2{
+     font-family: 'News Cycle', sans-serif;
+     font-size: 30px;
+     letter-spacing:1px;
+
+}
+
+/*.btn-md {
+    background-color: black;
+    border-color: black;
+    font-family: 'News Cycle', sans-serif;
+    letter-spacing: 2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    text-align:center;
+    }
+.btn-md:hover{
+    background-color: #C38963;
+    border-color: #C38963;
+}*/

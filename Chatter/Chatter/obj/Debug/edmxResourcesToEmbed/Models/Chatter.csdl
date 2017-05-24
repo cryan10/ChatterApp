@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChatterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChatteRegisteredUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="Boolean" />
+    <Property Name="UserEmail" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmEmail" Type="Boolean" />
+    <Property Name="UserPhoneNumber" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChatterUserInfoes" Relationship="Self.FK_ChatterUserInfo_ChatteRegisteredUsers" FromRole="ChatteRegisteredUsers" ToRole="ChatterUserInfo" />
+  </EntityType>
+  <EntityType Name="ChatterUserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="140" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ChatteRegisteredUser" Relationship="Self.FK_ChatterUserInfo_ChatteRegisteredUsers" FromRole="ChatterUserInfo" ToRole="ChatteRegisteredUsers" />
+    <NavigationProperty Name="ChatterUserInfo1" Relationship="Self.FK_ChatterUserInfo_ChatterUserInfo" FromRole="ChatterUserInfo" ToRole="ChatterUserInfo1" />
+    <NavigationProperty Name="ChatterUserInfo2" Relationship="Self.FK_ChatterUserInfo_ChatterUserInfo" FromRole="ChatterUserInfo1" ToRole="ChatterUserInfo" />
+  </EntityType>
+  <Association Name="FK_ChatterUserInfo_ChatteRegisteredUsers">
+    <End Role="ChatteRegisteredUsers" Type="Self.ChatteRegisteredUser" Multiplicity="1" />
+    <End Role="ChatterUserInfo" Type="Self.ChatterUserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChatteRegisteredUsers">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ChatterUserInfo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChatterUserInfo_ChatterUserInfo">
+    <End Role="ChatterUserInfo" Type="Self.ChatterUserInfo" Multiplicity="1" />
+    <End Role="ChatterUserInfo1" Type="Self.ChatterUserInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ChatterUserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChatterUserInfo1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChatterEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChatteRegisteredUsers" EntityType="Self.ChatteRegisteredUser" />
+    <EntitySet Name="ChatterUserInfoes" EntityType="Self.ChatterUserInfo" />
+    <AssociationSet Name="FK_ChatterUserInfo_ChatteRegisteredUsers" Association="Self.FK_ChatterUserInfo_ChatteRegisteredUsers">
+      <End Role="ChatteRegisteredUsers" EntitySet="ChatteRegisteredUsers" />
+      <End Role="ChatterUserInfo" EntitySet="ChatterUserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChatterUserInfo_ChatterUserInfo" Association="Self.FK_ChatterUserInfo_ChatterUserInfo">
+      <End Role="ChatterUserInfo" EntitySet="ChatterUserInfoes" />
+      <End Role="ChatterUserInfo1" EntitySet="ChatterUserInfoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
